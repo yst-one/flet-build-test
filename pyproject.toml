@@ -1,0 +1,37 @@
+[project]
+name = "flet-build-test"
+version = "0.1.0"
+description = "App to test flet build."
+requires-python = ">=3.10"
+authors = [{ name = "Appveyor Systems Inc.", email = "hello@flet.dev" }]
+
+dependencies = [
+    "flet >=0.70.0.dev0",
+    # extensions
+    "flet-ads >=0.70.0.dev0",
+    "flet-audio >=0.70.0.dev0",
+    "flet-audio-recorder >=0.70.0.dev0",
+    "flet-charts >=0.70.0.dev0",
+    "flet-datatable2 >=0.70.0.dev0",
+    "flet-flashlight >=0.70.0.dev0",
+    "flet-geolocator >=0.70.0.dev0",
+    "flet-lottie >=0.70.0.dev0",
+    "flet-map >=0.70.0.dev0",
+    "flet-permission-handler >=0.70.0.dev0",
+    "flet-rive >=0.70.0.dev0",
+    "flet-video >=0.70.0.dev0",
+    "flet-webview >=0.70.0.dev0",
+]
+
+[tool.uv]
+prerelease = "allow"
+
+# Docs: https://docs.flet.dev/publish/
+[tool.flet]
+org = "com.flet"
+product = "flet-build-test"
+company = "Flet"
+copyright = "Copyright (C) 2025 by Flet"
+
+[tool.flet.app]
+path = "src"
