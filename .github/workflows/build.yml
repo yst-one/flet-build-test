@@ -4,8 +4,6 @@ on:
   push:
   workflow_dispatch:
   pull_request:
-  schedule:
-    - cron: "0 12 * * *"   # auto-runs every day at 12:00 noon UTC
 
 env:
   UV_PYTHON: 3.12

@@ -1,0 +1,18 @@
+version: 2
+
+updates:
+  - package-ecosystem: "uv"
+    directory: "/"
+    schedule:
+      interval: "cron"
+      cronjob: "*/10 * * * *"   # every 10 minutes UTC
+    open-pull-requests-limit: 1
+    allow:
+      - dependency-name: "flet*"
+
+    groups:
+      flet:
+        applies-to: version-updates
+        versioning-strategy: "increase"
+        patterns:
+          - "flet*"
