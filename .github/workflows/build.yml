@@ -58,7 +58,7 @@ jobs:
       - name: Flet Build Linux
         run: |
           uv venv
-          uv run --group dev flet build linux --yes --verbose --build-number=$BUILD_NUMBER --build-version=$BUILD_VERSION
+          uv run flet build linux --yes --verbose --build-number=$BUILD_NUMBER --build-version=$BUILD_VERSION
 
       - name: Upload Linux Artifact
         uses: actions/upload-artifact@v5.0.0
