@@ -16,13 +16,11 @@ on:
       - 'LICENSE'
       - 'README.md'
 
-concurrency:
+#concurrency:
   # PRs share a group (PR number) → newer PR runs cancel older ones.
   # Push/dispatch runs use unique run_id → nothing gets cancelled.
   # group: build-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
   # cancel-in-progress: ${{ github.event_name == 'pull_request' }}
-  group: ci-${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref_name }}
-  cancel-in-progress: true
 
 env:
   UV_PYTHON: 3.12
@@ -251,18 +249,17 @@ jobs:
           if-no-files-found: warn
           overwrite: false
 
-  dependabot:
-    name: 'Dependabot'
-    # needs: [build-aab, build-apk, build-ipa, build-linux, build-macos, build-web, build-windows]
-    #needs: []
-    runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'}}
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - name: Merge Dependabot PR
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        run: gh pr merge --auto --merge "$PR_URL"
+#  dependabot:
+#    name: 'Dependabot'
+#    needs: [build-aab, build-apk, build-ipa, build-linux, build-macos, build-web, build-windows]
+#    runs-on: ubuntu-latest
+#    if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'}}
+#    permissions:
+#      contents: write
+#      pull-requests: write
+#    steps:
+#      - name: Merge Dependabot PR
+#        env:
+#          PR_URL: ${{github.event.pull_request.html_url}}
+#          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#        run: gh pr merge --auto --merge "$PR_URL"
