@@ -20,7 +20,10 @@ from my_modules.utils import cube_util, square_util
 
 
 def main(page: ft.Page):
-    page.appbar = ft.AppBar(title=ft.Text("Flet Build Test"))
+    page.appbar = ft.AppBar(
+        title=ft.Text("Flet Build Test"),
+        actions=[ft.Text(f"v{ft.__version__}")],
+    )
     page.horizontal_alignment = page.vertical_alignment = "center"
 
     page.add(
