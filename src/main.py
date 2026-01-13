@@ -5,26 +5,14 @@ def main(page: ft.Page):
 
 
     page.drawer = ft.NavigationDrawer(
+        controls=[
+            ft.Container(height=50,),
+            ft.Container(content=ft.Row(alignment=ft.MainAxisAlignment.SPACE_AROUND,controls=[ft.Text("提问历史"),ft.TextButton("删除")],),alignment=ft.Alignment.CENTER),
+            ft.Divider(),
+            ft.Container(content=ft.Row(alignment=ft.MainAxisAlignment.SPACE_AROUND,controls=[ft.Text("提问历史"),ft.TextButton("删除")],),alignment=ft.Alignment.CENTER),
+            
+        ]
 
-    controls=[
-        ft.Container(height=12),
-        ft.NavigationDrawerDestination(
-            label="Item 1",
-            icon=ft.Icons.DOOR_BACK_DOOR_OUTLINED,
-            selected_icon=ft.Icon(ft.Icons.DOOR_BACK_DOOR),
-        ),
-        ft.Divider(thickness=2),
-        ft.NavigationDrawerDestination(
-            icon=ft.Icon(ft.Icons.MAIL_OUTLINED),
-            label="Item 2",
-            selected_icon=ft.Icons.MAIL,
-        ),
-        ft.NavigationDrawerDestination(
-            icon=ft.Icon(ft.Icons.PHONE_OUTLINED),
-            label="Item 3",
-            selected_icon=ft.Icons.PHONE,
-        ),
-    ],
     )
     async def handle_show_drawer():
         await page.show_drawer()
@@ -47,6 +35,16 @@ def main(page: ft.Page):
     ],
     )
     page.add(
+        ft.ListView(
+            expand=True,
+            controls=[ft.Row(
+                vertical_alignment=ft.CrossAxisAlignment.START,
+                controls=[ft.Column(expand=True,alignment=ft.MainAxisAlignment.START,controls=[ft.Container(height=30,bgcolor=ft.Colors.AMBER_200) for _ in range(100)]),
+                        ft.Column(expand=True,alignment=ft.MainAxisAlignment.START,controls=[ft.Container(height=60,bgcolor=ft.Colors.AMBER_200) for _ in range(55)]),
+                        ],
+            )],
+            on_scroll=lambda e: print(f"scrolled{e.pixels,e.max_scroll_extent,e.min_scroll_extent}"),
+        )
         
     )
 
