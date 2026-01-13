@@ -7,20 +7,15 @@ authors = [{ name = "Appveyor Systems Inc.", email = "hello@flet.dev" }]
 
 dependencies = [
     "flet >=0.80.1",
-    "flet-ads >=0.80.1",
-    "flet-audio >=0.80.1",
-    "flet-audio-recorder >=0.80.1",
-    "flet-charts >=0.80.1",
-    "flet-datatable2 >=0.80.1",
-    "flet-flashlight >=0.80.1",
-    "flet-geolocator >=0.80.1",
-    "flet-lottie >=0.80.1",
-    "flet-map >=0.80.1",
-    "flet-permission-handler >=0.80.1",
-    "flet-rive >=0.80.1",
-    "flet-video >=0.80.1",
-    "flet-webview >=0.80.1",
 ]
+
+[tool.flet.android]
+dependencies = [
+  "pyjnius","android-notify==1.60.6.dev0"
+]
+
+[tool.flet.android.permission]
+"android.permission.POST_NOTIFICATIONS" = true
 
 [dependency-groups]
 dev = [

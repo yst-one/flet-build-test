@@ -26,6 +26,14 @@ def main(page: ft.Page):
     )
     page.horizontal_alignment = page.vertical_alignment = "center"
 
+    from android_notify import Notification
+
+    # Simple notification
+    Notification(
+        title="Hello",
+        message="This is a basic notification."
+    ).send()
+
     page.add(
         ft.SafeArea(
             content=ft.Column(
