@@ -2,45 +2,52 @@ import flet as ft
 
 
 def main(page: ft.Page):
-    page.add(
-        ft.Tabs(
-            selected_index=1,
-            length=3,
-            expand=True,
-            content=ft.Column(
-                expand=True,
-                controls=[
-                    ft.TabBar(
-                        tabs=[
-                            ft.Tab(label="Tab 1", icon=ft.Icons.SETTINGS_PHONE),
-                            ft.Tab(label="Tab 2", icon=ft.Icons.SETTINGS),
-                            ft.Tab(
-                                label=ft.CircleAvatar(
-                                    foreground_image_src="https://avatars.githubusercontent.com/u/102273996?s=200&amp;v=4",
-                                ),
-                            ),
-                        ]
-                    ),
-                    ft.TabBarView(
-                        expand=True,
-                        controls=[
-                            ft.Container(
-                                content=ft.Text("This is Tab 1"),
-                                alignment=ft.Alignment.CENTER,
-                            ),
-                            ft.Container(
-                                content=ft.Text("This is Tab 2"),
-                                alignment=ft.Alignment.CENTER,
-                            ),
-                            ft.Container(
-                                content=ft.Text("This is Tab 3"),
-                                alignment=ft.Alignment.CENTER,
-                            ),
-                        ],
-                    ),
-                ],
-            ),
+
+
+    page.drawer = ft.NavigationDrawer(
+
+    controls=[
+        ft.Container(height=12),
+        ft.NavigationDrawerDestination(
+            label="Item 1",
+            icon=ft.Icons.DOOR_BACK_DOOR_OUTLINED,
+            selected_icon=ft.Icon(ft.Icons.DOOR_BACK_DOOR),
+        ),
+        ft.Divider(thickness=2),
+        ft.NavigationDrawerDestination(
+            icon=ft.Icon(ft.Icons.MAIL_OUTLINED),
+            label="Item 2",
+            selected_icon=ft.Icons.MAIL,
+        ),
+        ft.NavigationDrawerDestination(
+            icon=ft.Icon(ft.Icons.PHONE_OUTLINED),
+            label="Item 3",
+            selected_icon=ft.Icons.PHONE,
+        ),
+    ],
+    )
+    async def handle_show_drawer():
+        await page.show_drawer()
+
+
+    page.appbar = ft.AppBar(
+    leading=ft.IconButton(ft.Icons.MENU, on_click=handle_show_drawer),
+    leading_width=40,
+    #title=ft.Text("AppBar Example"),
+    center_title=False,
+    bgcolor=ft.Colors.with_opacity(0.5, ft.Colors.BLUE),
+    actions_padding=10,
+    actions=[
+        ft.CircleAvatar(
+            content=ft.Text("AB"),
+            bgcolor=ft.Colors.PRIMARY,
+            color=ft.Colors.ON_PRIMARY,
+            max_radius=15
         )
+    ],
+    )
+    page.add(
+        
     )
 
 
