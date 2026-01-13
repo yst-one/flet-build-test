@@ -31,9 +31,7 @@ def main(page: ft.Page):
             content=ft.Column(
                 [
                     ft.Text(greeter("world"), weight=ft.FontWeight.BOLD),
-                    ft.Text(f"Square of 3 is {square_util(3)}"),
-                    ft.Text(f"Cube of 3 is {cube_util(3)}"),
-                    ft.Text(f"sys.path: {sys.path}"),
+
                 ],
             )
         )
