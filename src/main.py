@@ -1,36 +1,48 @@
-import sys
-
 import flet as ft
-
-from my_modules.some_module import greeter
-from my_modules.utils import cube_util, square_util
 
 
 def main(page: ft.Page):
-    page.appbar = ft.AppBar(
-        title=ft.Text("Flet Build Test"),
-        actions=[ft.Text(f"v{ft.__version__}")],
-    )
-    page.horizontal_alignment = page.vertical_alignment = "center"
-
-    from android_notify import Notification
-
-    # Simple notification
-    Notification(
-        title="Hello",
-        message="This is a basic notification."
-    ).send()
-
     page.add(
-        ft.SafeArea(
+        ft.Tabs(
+            selected_index=1,
+            length=3,
+            expand=True,
             content=ft.Column(
-                [
-                    ft.Text(greeter("world"), weight=ft.FontWeight.BOLD),
-
+                expand=True,
+                controls=[
+                    ft.TabBar(
+                        tabs=[
+                            ft.Tab(label="Tab 1", icon=ft.Icons.SETTINGS_PHONE),
+                            ft.Tab(label="Tab 2", icon=ft.Icons.SETTINGS),
+                            ft.Tab(
+                                label=ft.CircleAvatar(
+                                    foreground_image_src="https://avatars.githubusercontent.com/u/102273996?s=200&amp;v=4",
+                                ),
+                            ),
+                        ]
+                    ),
+                    ft.TabBarView(
+                        expand=True,
+                        controls=[
+                            ft.Container(
+                                content=ft.Text("This is Tab 1"),
+                                alignment=ft.Alignment.CENTER,
+                            ),
+                            ft.Container(
+                                content=ft.Text("This is Tab 2"),
+                                alignment=ft.Alignment.CENTER,
+                            ),
+                            ft.Container(
+                                content=ft.Text("This is Tab 3"),
+                                alignment=ft.Alignment.CENTER,
+                            ),
+                        ],
+                    ),
                 ],
-            )
+            ),
         )
     )
 
 
-ft.run(main)
+if __name__ == "__main__":
+    ft.run(main)
