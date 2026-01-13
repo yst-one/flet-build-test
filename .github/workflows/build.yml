@@ -33,57 +33,7 @@ env:
   FLET_CLI_NO_RICH_OUTPUT: 1
 
 jobs:
-  build-linux:
-    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup uv
-        uses: astral-sh/setup-uv@v6
-
-      - name: Install Linux dependencies
-        shell: bash
-        run: |
-          sudo apt update --allow-releaseinfo-change
-          sudo apt-get install -y --no-install-recommends \
-            clang \
-            ninja-build \
-            libgtk-3-dev \
-            libasound2-dev \
-            libmpv-dev \
-            mpv \
-            libgstreamer1.0-dev \
-            libgstreamer-plugins-base1.0-dev \
-            libgstreamer-plugins-bad1.0-dev \
-            gstreamer1.0-plugins-base \
-            gstreamer1.0-plugins-good \
-            gstreamer1.0-plugins-bad \
-            gstreamer1.0-plugins-ugly \
-            gstreamer1.0-libav \
-            gstreamer1.0-tools \
-            gstreamer1.0-x \
-            gstreamer1.0-alsa \
-            gstreamer1.0-gl \
-            gstreamer1.0-gtk3 \
-            gstreamer1.0-qt5 \
-            gstreamer1.0-pulseaudio
-      
-          sudo apt-get clean
-
-      - name: Flet Build Linux
-        run: |
-          uv venv
-          uv run flet build linux --yes --verbose --build-number=$BUILD_NUMBER --build-version=$BUILD_VERSION
-
-      - name: Upload Linux Artifact
-        uses: actions/upload-artifact@v5.0.0
-        with:
-          name: linux-build-artifact
-          path: build/linux
-          if-no-files-found: warn
-          overwrite: false
 
  
 
