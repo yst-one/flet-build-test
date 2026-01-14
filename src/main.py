@@ -96,10 +96,10 @@ def main(page: ft.Page):
 
 
     page.appbar = appbar
-    def on_scroll(e: ft.OnScrollEvent):
+    async def on_scroll(e: ft.OnScrollEvent):
         print(e)
         log.value=f"scrolled{e.pixels,e.max_scroll_extent,e.min_scroll_extent,e.overscroll}"
-        log.update
+        await log.update()
     log = ft.Text("scrolled")
     page.add(
         ft.ListView(
