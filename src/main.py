@@ -2,6 +2,8 @@ import flet as ft
 ft.context.disable_auto_update()
 
 def main(page: ft.Page):
+    page.window.width=500
+    page.window.height=900
 
 
     page.drawer = ft.NavigationDrawer(
@@ -98,24 +100,32 @@ def main(page: ft.Page):
     page.appbar = appbar
     async def on_scroll(e: ft.OnScrollEvent):
         print(e)
-        log.value=f"scrolled{e.pixels,e.max_scroll_extent,e.min_scroll_extent,e.overscroll}"
+        log.value=f"scrolled{e}"
         log.update()
-    log = ft.Text("scrolled")
+    log = ft.Text("scrolled",height=100,size=10)
     page.add(
+        log,
         ft.ListView(
             height=page.height - 100,
+            spacing=10,
             controls=[
-                log,
-                ft.Row(
-                vertical_alignment=ft.CrossAxisAlignment.START,
-                controls=[ft.Column(expand=True,alignment=ft.MainAxisAlignment.START,controls=[ft.Container(height=30,bgcolor=ft.Colors.AMBER_200) for _ in range(100)]),
-                         ft.Column(expand=True,alignment=ft.MainAxisAlignment.START,controls=[ft.Container(height=60,bgcolor=ft.Colors.AMBER_200) for _ in range(55)]),
-                        ],
-            )],
+                # log,
+                ft.Row(expand=True,alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                        controls=[ft.Container(height=250,expand=True,padding=ft.Padding.all(10),bgcolor=ft.Colors.AMBER_200),
+                                ft.Container(height=250,expand=True,padding=ft.Padding.all(10),bgcolor=ft.Colors.AMBER_200)
+                                ]
+                    ) for _ in range(100)
+                ],
             on_scroll=on_scroll
-        )
+                        
+
+            ),
+
+            
+            )
         
-    )
+        
+    
 
 
 if __name__ == "__main__":
