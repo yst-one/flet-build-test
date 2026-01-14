@@ -1,5 +1,5 @@
 import flet as ft
-
+ft.context.disable_auto_update()
 
 def main(page: ft.Page):
 
@@ -20,7 +20,7 @@ def main(page: ft.Page):
         # on_change=handle_change,
         bgcolor=ft.Colors.BLUE_GREY_50,
         
-        controls=[ft.Column(height=page.height-80,alignment=ft.MainAxisAlignment.CENTER,expand=True,
+        controls=[ft.Column(height=page.height,alignment=ft.MainAxisAlignment.CENTER,expand=True,
             controls=[
                 ft.Container(height=50,content=ft.Row(alignment=ft.MainAxisAlignment.END,
                                                     controls=[ft.IconButton(ft.Icons.ABC,ft.Text("扫一扫")),
@@ -28,7 +28,7 @@ def main(page: ft.Page):
                                                         ]
                                                     ),
                             ),
-                ft.Stack(height=page.height-50,controls=[
+                ft.Stack(height=page.height-70,controls=[
 
                         ft.ListView(scroll=ft.ScrollMode.ADAPTIVE,
                                     controls=[
@@ -56,7 +56,7 @@ def main(page: ft.Page):
                         ]),
                          ft.TransparentPointer(content=
                             ft.Container(alignment=ft.Alignment.BOTTOM_CENTER,padding=ft.Padding.only(bottom=50),
-                            content=ft.Button("退出登录",))
+                            content=ft.Button("退出登录",bgcolor=ft.Colors.BLUE_GREY_50,on_click=lambda e: print("退出登录")),)
                         ),
 
                     ])
