@@ -28,7 +28,7 @@ def main(page: ft.Page):
                                                         ]
                                                     ),
                             ),
-                ft.Stack(height=page.height-70,controls=[
+                ft.Stack(height=page.height-100,controls=[
 
                         ft.ListView(scroll=ft.ScrollMode.ADAPTIVE,
                                     controls=[
@@ -103,7 +103,7 @@ def main(page: ft.Page):
     log = ft.Text("scrolled")
     page.add(
         ft.ListView(
-            expand=True,
+            height=page.height - 100,
             controls=[
                 log,
                 ft.Row(
