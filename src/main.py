@@ -19,14 +19,16 @@ def main(page: ft.Page):
         # on_dismiss=handle_dismissal,
         # on_change=handle_change,
         bgcolor=ft.Colors.BLUE_GREY_50,
-        controls=[
+        
+        controls=[ft.Column(height=page.height,
+            controls=[
                 ft.Container(height=50,content=ft.Row(alignment=ft.MainAxisAlignment.END,
                                                     controls=[ft.IconButton(ft.Icons.ABC,ft.Text("扫一扫")),
                                                                 ft.IconButton(ft.Icons.SETTINGS,ft.Text("设置"))
                                                         ]
                                                     ),
                             ),
-                ft.Stack(height=page.height-80,controls=[
+                ft.Stack(height=page.height-50,controls=[
 
                         ft.ListView(scroll=ft.ScrollMode.AUTO,
                                     controls=[
@@ -50,7 +52,7 @@ def main(page: ft.Page):
                                                             ]
                                                         )
 
-                                        ) for _ in range(5)
+                                        ) for _ in range(10)
                         ]),
                          ft.TransparentPointer(content=
                             ft.Container(alignment=ft.Alignment.BOTTOM_CENTER,padding=ft.Padding.only(bottom=20),
@@ -58,6 +60,7 @@ def main(page: ft.Page):
                         ),
 
                     ])
+            ])
         ],
     )
     async def handle_show_end_drawer():
