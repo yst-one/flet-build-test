@@ -26,7 +26,7 @@ def main(page: ft.Page):
                                                         ]
                                                     ),
                             ),
-                ft.Stack(height=page.height-50,controls=[
+                ft.Stack(height=page.height-80,controls=[
 
                         ft.ListView(scroll=ft.ScrollMode.AUTO,
                                     controls=[
@@ -95,17 +95,18 @@ def main(page: ft.Page):
     page.appbar = appbar
     def on_scroll(e: ft.OnScrollEvent):
         print(e)
-        page.show_dialog(ft.SnackBar(ft.Text(f"scrolled{e.pixels,e.max_scroll_extent,e.min_scroll_extent,e.overscroll}")))
-        appbar.title=f"scrolled{e.pixels,e.max_scroll_extent,e.min_scroll_extent}",
-        appbar.update()
-
+        log.value=f"scrolled{e.pixels,e.max_scroll_extent,e.min_scroll_extent,e.overscroll}"
+        log.update
+    log = ft.Text("scrolled")
     page.add(
         ft.ListView(
             expand=True,
-            controls=[ft.Row(
+            controls=[
+                log,
+                ft.Row(
                 vertical_alignment=ft.CrossAxisAlignment.START,
                 controls=[ft.Column(expand=True,alignment=ft.MainAxisAlignment.START,controls=[ft.Container(height=30,bgcolor=ft.Colors.AMBER_200) for _ in range(100)]),
-                        ft.Column(expand=True,alignment=ft.MainAxisAlignment.START,controls=[ft.Container(height=60,bgcolor=ft.Colors.AMBER_200) for _ in range(55)]),
+                         ft.Column(expand=True,alignment=ft.MainAxisAlignment.START,controls=[ft.Container(height=60,bgcolor=ft.Colors.AMBER_200) for _ in range(55)]),
                         ],
             )],
             on_scroll=on_scroll
