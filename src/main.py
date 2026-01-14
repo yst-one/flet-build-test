@@ -30,7 +30,7 @@ def main(page: ft.Page):
                                                         ]
                                                     ),
                             ),
-                ft.Stack(height=page.window.height-100,controls=[
+                ft.Stack(height=page.window.height-150,controls=[
 
                         ft.ListView(scroll=ft.ScrollMode.ADAPTIVE,
                                     controls=[
