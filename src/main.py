@@ -20,7 +20,7 @@ def main(page: ft.Page):
         # on_change=handle_change,
         bgcolor=ft.Colors.BLUE_GREY_50,
         
-        controls=[ft.Column(height=page.height,
+        controls=[ft.Column(height=page.height-80,alignment=ft.MainAxisAlignment.CENTER,expand=True,
             controls=[
                 ft.Container(height=50,content=ft.Row(alignment=ft.MainAxisAlignment.END,
                                                     controls=[ft.IconButton(ft.Icons.ABC,ft.Text("扫一扫")),
@@ -30,7 +30,7 @@ def main(page: ft.Page):
                             ),
                 ft.Stack(height=page.height-50,controls=[
 
-                        ft.ListView(scroll=ft.ScrollMode.AUTO,
+                        ft.ListView(scroll=ft.ScrollMode.ADAPTIVE,
                                     controls=[
                                         ft.Container(expand=True,bgcolor=ft.Colors.WHITE,margin=ft.Margin.all(10),border_radius=ft.BorderRadius.all(10),padding=ft.Padding.all(10),
                                                     content=ft.Column(
@@ -55,7 +55,7 @@ def main(page: ft.Page):
                                         ) for _ in range(10)
                         ]),
                          ft.TransparentPointer(content=
-                            ft.Container(alignment=ft.Alignment.BOTTOM_CENTER,padding=ft.Padding.only(bottom=20),
+                            ft.Container(alignment=ft.Alignment.BOTTOM_CENTER,padding=ft.Padding.only(bottom=50),
                             content=ft.Button("退出登录",))
                         ),
 
