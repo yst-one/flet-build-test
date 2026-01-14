@@ -22,7 +22,7 @@ def main(page: ft.Page):
         # on_change=handle_change,
         bgcolor=ft.Colors.BLUE_GREY_50,
         
-        controls=[ft.Column(height=page.height,alignment=ft.MainAxisAlignment.CENTER,expand=True,
+        controls=[ft.Column(height=page.window.height-50,alignment=ft.MainAxisAlignment.CENTER,expand=True,
             controls=[
                 ft.Container(height=50,content=ft.Row(alignment=ft.MainAxisAlignment.END,
                                                     controls=[ft.IconButton(ft.Icons.ABC,ft.Text("扫一扫")),
@@ -30,7 +30,7 @@ def main(page: ft.Page):
                                                         ]
                                                     ),
                             ),
-                ft.Stack(height=page.height-100,controls=[
+                ft.Stack(height=page.window.height-100,controls=[
 
                         ft.ListView(scroll=ft.ScrollMode.ADAPTIVE,
                                     controls=[
@@ -106,7 +106,7 @@ def main(page: ft.Page):
     page.add(
         log,
         ft.ListView(
-            height=page.height - 100,
+            height=page.window.height - 100,
             spacing=10,
             controls=[
                 # log,
