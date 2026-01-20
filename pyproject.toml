@@ -31,6 +31,7 @@ org = "com.flet"
 product = "flet-build-test"
 company = "Flet"
 copyright = "Copyright (C) 2025 by Flet"
+splash.android = false
 
 [tool.flet.app]
 path = "src"
