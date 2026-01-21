@@ -36,11 +36,11 @@ splash.color = "#ffffff"
 splash.dark_color = "#333333"
 
 [tool.flet.app.boot_screen]
-show = false
+show = true
 message = "Preparing the app for its first launch…"
 
 [tool.flet.app.startup_screen]
-show = false
+show = true
 message = "Starting up the app…"
 
 [tool.flet.app]
