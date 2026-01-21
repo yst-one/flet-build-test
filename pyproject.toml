@@ -32,6 +32,16 @@ product = "flet-build-test"
 company = "Flet"
 copyright = "Copyright (C) 2025 by Flet"
 splash.android = false
+splash.color = "#ffffff"
+splash.dark_color = "#333333"
+
+[tool.flet.app.boot_screen]
+show = false
+message = "Preparing the app for its first launch…"
+
+[tool.flet.app.startup_screen]
+show = false
+message = "Starting up the app…"
 
 [tool.flet.app]
 path = "src"
