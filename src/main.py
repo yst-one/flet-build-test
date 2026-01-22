@@ -114,7 +114,7 @@ def main(page: ft.Page):
                         controls=[ft.Container(height=250,expand=True,padding=ft.Padding.all(10),bgcolor=ft.Colors.AMBER_200),
                                 ft.Container(height=250,expand=True,padding=ft.Padding.all(10),bgcolor=ft.Colors.AMBER_200)
                                 ]
-                    ) for _ in range(100)
+                    ) for _ in range(10000)
                 ],
             on_scroll=on_scroll
                         
