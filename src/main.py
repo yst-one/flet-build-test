@@ -47,7 +47,7 @@ def main(page: ft.Page):
                                                                 controls=[ft.Container(alignment=ft.Alignment.CENTER,bgcolor=ft.Colors.BLUE_50,
                                                                                 content=ft.Column(alignment=ft.MainAxisAlignment.START,horizontal_alignment=ft.CrossAxisAlignment.CENTER,spacing=1,
                                                                                                     controls=[ft.Text("47",text_align=ft.TextAlign.CENTER),ft.Text("收藏",text_align=ft.TextAlign.CENTER)]),
-                                                                                        ) for _ in range(4) 
+                                                                                        ) 
 
                                                                             ],
                                                                             )
@@ -114,7 +114,7 @@ def main(page: ft.Page):
                         controls=[ft.Container(height=250,expand=True,padding=ft.Padding.all(10),bgcolor=ft.Colors.AMBER_200),
                                 ft.Container(height=250,expand=True,padding=ft.Padding.all(10),bgcolor=ft.Colors.AMBER_200)
                                 ]
-                    ) for _ in range(10000)
+                    ) 
                 ],
             on_scroll=on_scroll
                         
